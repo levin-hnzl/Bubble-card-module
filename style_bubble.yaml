@@ -1,0 +1,95 @@
+style_bubble:
+  name: Style Bubble
+  version: '1.0'
+  creator: levin-hnzl
+  supported:
+    - separator
+  description: ''
+  code: |-
+    .bubble-line{
+      visibility: ${this.config.style_bubble?.['visibility'] || 'visible'};
+      background-color: ${this.config.style_bubble?.['line-color']};
+    }
+
+    ha-card {
+      display: flex;
+    --bubble-main-background-color: transparent;
+      justify-content: ${this.config.style_bubble?.['justify-content'] || 'flex-end'};
+    }
+
+    .icon-without-state {
+      --mdc-icon-size: ${this.config.style_bubble?.['icon-size']}px !important;
+    }
+
+    .bubble-sub-button {
+      height: ${this.config.style_bubble?.['icon-background-height']}px !important;
+      width: ${this.config.style_bubble?.['icon-background-width']}px !important;
+    }
+
+    .bubble-sub-button-container,
+    .large .bubble-sub-button-container {
+        display: flex;
+        flex-flow: wrap;
+        gap: ${this.config.style_bubble?.gap}px;
+      }
+  editor:
+    - type: expandable
+      title: Line style
+      icon: mdi:palette
+      schema:
+        - name: visibility
+          label: Line visibility
+          selector:
+            select:
+              options:
+                - hidden
+                - visible
+        - name: line-color
+          label: 'Line color (enter #hex or rgb color code)'
+          selector:
+            text: {}
+    - type: expandable
+      title: Sub Buttons
+      icon: mdi:button-pointer
+      schema:
+        - type: expandable
+          title: general
+          icon: mdi:cog
+          schema:
+            - name: justify-content
+              label: Orientation
+              selector:
+                select:
+                  options:
+                    - label: start
+                      value: flex-start
+                    - label: center
+                      value: center
+                    - label: end
+                      value: flex-end
+                    - label: space between
+                      value: space-between
+                    - label: space around
+                      value: space-around
+                    - label: space evenly
+                      value: space-evenly
+            - name: icon-size
+              label: Icon size
+              selector:
+                number:
+                  min: 0
+            - name: icon-background-height
+              label: Background height
+              selector:
+                number:
+                  min: 0
+            - name: icon-background-width
+              label: Background width
+              selector:
+                number:
+                  min: 0
+            - name: gap
+              label: Gap
+              selector:
+                number:
+                  min: 0
