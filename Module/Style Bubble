@@ -1,0 +1,119 @@
+style_bubble:
+  name: Style Bubble
+  version: '1.0'
+  creator: levin-hnzl
+  supported:
+    - separator
+  description: ''
+  code: |
+    .bubble-line{
+      visibility: ${this.config.style_bubble?.['visibility'] || 'visible'};
+      background-color: ${this.config.style_bubble?.['line-color']};
+    }
+
+    ha-card {
+      display: ${this.config.style_bubble?.['display-art'] || 'unset'};
+    --bubble-main-background-color: transparent;
+      justify-content: ${this.config.style_bubble?.['justify-content'] || 'flex-end'}'};
+    }
+
+    .icon-without-state {
+      --mdc-icon-size: ${this.config.style_bubble?.['icon-size']}px !important;
+    }
+
+    .bubble-sub-button {
+      height: ${this.config.style_bubble?.['icon-background-height']}px !important;
+      width: ${this.config.style_bubble?.['icon-background-width']}px !important;
+    }
+
+    .bubble-sub-button-container,
+    .large .bubble-sub-button-container {
+        display: flex;
+        flex-flow: wrap;
+        gap: ${this.config.style_bubble?.gap}px;
+      }
+
+    .bubble-button-card-container,
+    .bubble-button-card-container .bubble-container,
+    .bubble-button-card-container .bubble-container .button-container {
+      overflow: visible !important;
+    }
+  editor:
+    - type: expandable
+      title: Seperator Settings
+      icon: mdi:cog
+      schema:
+        - name: display-art
+          label: Would you like to use position?
+          selector:
+            select:
+              options:
+                - label: Yes
+                  value: flex
+                - label: No
+                  value: unset
+        - name: justify-content
+          label: Position
+          selector:
+            select:
+              options:
+                - label: start
+                  value: flex-start
+                - label: center
+                  value: center
+                - label: end
+                  value: flex-end
+                - label: space between
+                  value: space-between
+                - label: space around
+                  value: space-around
+                - label: space evenly
+                  value: space-evenly
+    - type: expandable
+      title: Line style
+      icon: mdi:palette
+      schema:
+        - name: visibility
+          label: Line visibility
+          selector:
+            select:
+              options:
+                - hidden
+                - visible
+        - name: line-color
+          label: 'Line color (enter #hex or rgb color code)'
+          selector:
+            text: {}
+        - name: line-height
+          label: Line height
+          selector:
+            number:
+              min: 1
+    - type: expandable
+      title: Sub Buttons
+      icon: mdi:button-pointer
+      schema:
+        - type: expandable
+          title: General
+          icon: mdi:cog
+          schema:
+            - name: icon-size
+              label: Icon size
+              selector:
+                number:
+                  min: 0
+            - name: icon-background-height
+              label: Button background height
+              selector:
+                number:
+                  min: 0
+            - name: icon-background-width
+              label: Button background width
+              selector:
+                number:
+                  min: 0
+            - name: gap
+              label: Gap
+              selector:
+                number:
+                  min: 0
