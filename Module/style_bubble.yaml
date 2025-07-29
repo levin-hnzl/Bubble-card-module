@@ -5,16 +5,19 @@ style_bubble:
   supported:
     - separator
   description: ''
-  code: |-
+  code: |
     .bubble-line{
       visibility: ${this.config.style_bubble?.['visibility'] || 'visible'};
-      background-color: ${this.config.style_bubble?.['line-color']};
+      background-color: ${this.config.style_bubble?.['line-color'] || 'rgb(25, 24, 22)'};
+      height: ${this.config.style_bubble?.['line-height']px || '6px'};
+      border-radius: ${this.config.style_bubble?.['line-radius']px || '6px'};
+      opacity: ${this.config.style_bubble?.['line-opacity'] || '0.6'};
     }
 
     ha-card {
-      display: flex;
+      display: ${this.config.style_bubble?.['display-art'] || 'unset'};
     --bubble-main-background-color: transparent;
-      justify-content: ${this.config.style_bubble?.['justify-content'] || 'flex-end'};
+      justify-content: ${this.config.style_bubble?.['justify-content'] || 'flex-end'}'};
     }
 
     .icon-without-state {
@@ -22,8 +25,8 @@ style_bubble:
     }
 
     .bubble-sub-button {
-      height: ${this.config.style_bubble?.['icon-background-height']}px !important;
-      width: ${this.config.style_bubble?.['icon-background-width']}px !important;
+      height: ${this.config.style_bubble?.['button-background-height']}px !important;
+      width: ${this.config.style_bubble?.['button-background-width']}px !important;
     }
 
     .bubble-sub-button-container,
@@ -32,7 +35,43 @@ style_bubble:
         flex-flow: wrap;
         gap: ${this.config.style_bubble?.gap}px;
       }
+
+    .bubble-button-card-container,
+    .bubble-button-card-container .bubble-container,
+    .bubble-button-card-container .bubble-container .button-container {
+      overflow: visible !important;
+    }
   editor:
+    - type: expandable
+      title: Seperator Settings
+      icon: mdi:cog
+      schema:
+        - name: display-art
+          label: Would you like to use position?
+          selector:
+            select:
+              options:
+                - label: Yes
+                  value: flex
+                - label: No
+                  value: unset
+        - name: justify-content
+          label: Position
+          selector:
+            select:
+              options:
+                - label: start
+                  value: flex-start
+                - label: center
+                  value: center
+                - label: end
+                  value: flex-end
+                - label: space between
+                  value: space-between
+                - label: space around
+                  value: space-around
+                - label: space evenly
+                  value: space-evenly
     - type: expandable
       title: Line style
       icon: mdi:palette
@@ -48,48 +87,53 @@ style_bubble:
           label: 'Line color (enter #hex or rgb color code)'
           selector:
             text: {}
+        - name: line-height
+          label: Line height
+          selector:
+            number:
+              min: 1
+        - name: line-opacity
+          label: Line color opacity
+          mode: slider
+          selector:
+            number:
+              step: 0.1
+              min: 0
+              max: 1
+        - name: line-radius
+          label: Line border radius
+          selector:
+            number:
+              min: 0
     - type: expandable
       title: Sub Buttons
       icon: mdi:button-pointer
       schema:
         - type: expandable
-          title: general
+          title: General
           icon: mdi:cog
           schema:
-            - name: justify-content
-              label: Orientation
-              selector:
-                select:
-                  options:
-                    - label: start
-                      value: flex-start
-                    - label: center
-                      value: center
-                    - label: end
-                      value: flex-end
-                    - label: space between
-                      value: space-between
-                    - label: space around
-                      value: space-around
-                    - label: space evenly
-                      value: space-evenly
-            - name: icon-size
-              label: Icon size
+            - name: button-background-height
+              label: Button background height
               selector:
                 number:
                   min: 0
-            - name: icon-background-height
-              label: Background height
-              selector:
-                number:
-                  min: 0
-            - name: icon-background-width
-              label: Background width
+            - name: button-background-width
+              label: Button background width
               selector:
                 number:
                   min: 0
             - name: gap
               label: Gap
+              selector:
+                number:
+                  min: 0
+        - type: expandable
+          title: icon
+          icon: mdi:cog
+          schema:
+            - name: icon-size
+              label: Icon size
               selector:
                 number:
                   min: 0
