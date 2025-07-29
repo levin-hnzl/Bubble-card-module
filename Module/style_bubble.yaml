@@ -41,6 +41,10 @@ style_bubble:
     .bubble-button-card-container .bubble-container .button-container {
       overflow: visible !important;
     }
+
+    .background-off{
+      background-color: ${this.config.style_bubble?.['button-background-color'] || 'rgb(25, 24, 22)'};
+    }
   editor:
     - type: expandable
       title: Seperator Settings
@@ -92,6 +96,7 @@ style_bubble:
           selector:
             number:
               min: 1
+              unit_of_measurement: px
         - name: line-opacity
           label: Line color opacity
           mode: slider
@@ -105,6 +110,7 @@ style_bubble:
           selector:
             number:
               min: 0
+              unit_of_measurement: px
     - type: expandable
       title: Sub Buttons
       icon: mdi:button-pointer
@@ -118,6 +124,7 @@ style_bubble:
               selector:
                 number:
                   min: 0
+                  unit_of_measurement: px
             - name: button-background-width
               label: Button background width
               selector:
@@ -128,6 +135,11 @@ style_bubble:
               selector:
                 number:
                   min: 0
+                  unit_of_measurement: px
+            - name: line-color
+              label: 'Button background color (enter #hex or rgb color code)'
+              selector:
+                text: {}
         - type: expandable
           title: icon
           icon: mdi:cog
@@ -137,3 +149,4 @@ style_bubble:
               selector:
                 number:
                   min: 0
+                  unit_of_measurement: px
