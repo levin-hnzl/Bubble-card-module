@@ -5,7 +5,7 @@ style_bubble:
   supported:
     - separator
   description: ''
-  code: |
+  code: |-
     .bubble-line{
       visibility: ${this.config.style_bubble?.['visibility'] || 'visible'};
       background-color: ${this.config.style_bubble?.['line-color'] || 'rgb(25, 24, 22)'};
@@ -45,6 +45,11 @@ style_bubble:
     .background-off{
       background-color: ${this.config.style_bubble?.['button-background-color'] || 'rgb(25, 24, 22)'};
     }
+
+    .bubble-name {
+      color:  ${this.config.style_bubble?.['title-color']};
+      font-size: ${this.config.style_bubble?.['title-size']}px;
+    }
   editor:
     - type: expandable
       title: Seperator Settings
@@ -76,6 +81,17 @@ style_bubble:
                   value: space-around
                 - label: space evenly
                   value: space-evenly
+        - name: title-size
+          label: Title size
+          mode: slider
+          selector:
+            number:
+              min: 0
+              max: 100
+        - name: line-color
+          label: 'Title color (enter #hex or rgb color code)'
+          selector:
+            text: {}
     - type: expandable
       title: Line style
       icon: mdi:palette
