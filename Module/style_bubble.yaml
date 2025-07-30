@@ -27,6 +27,7 @@ style_bubble:
     .bubble-sub-button {
       height: ${(this.config.style_bubble?.['button-background-height'] || 40) + 'px'} !important;
       width: ${(this.config.style_bubble?.['button-background-width'] || 40) + 'px'} !important;
+      border-radius: ${(this.config.style_bubble?.['button-border-radius'] || 32) + 'px'} !important;
     }
 
     .bubble-sub-button-container,
@@ -146,13 +147,20 @@ style_bubble:
               selector:
                 number:
                   min: 0
+            - name: button-border-radius
+              label: Button border radius
+              mode: slider
+              selector:
+                number:
+                  min: 0
+                  max: 32
             - name: gap
               label: Gap
               selector:
                 number:
                   min: 0
                   unit_of_measurement: px
-            - name: line-color
+            - name: button-background-color
               label: 'Button background color (enter #hex or rgb color code)'
               selector:
                 text: {}
