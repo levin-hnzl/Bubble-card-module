@@ -4,37 +4,37 @@ style_bubble:
   creator: levin-hnzl
   supported:
     - separator
-  description: ''
-  code: |-
-    .bubble-line{
+  description: this is a simple styling module for the separator
+  code: |
+    .bubble-line {
       visibility: ${this.config.style_bubble?.['visibility'] || 'visible'};
       background-color: ${this.config.style_bubble?.['line-color'] || 'rgb(25, 24, 22)'};
-      height: ${this.config.style_bubble?.['line-height']px || '6px'};
-      border-radius: ${this.config.style_bubble?.['line-radius']px || '6px'};
+      height: ${(this.config.style_bubble?.['line-height'] || 7) + 'px'};
+      border-radius: ${(this.config.style_bubble?.['line-radius'] || 6) + 'px'};
       opacity: ${this.config.style_bubble?.['line-opacity'] || '0.6'};
     }
 
     ha-card {
       display: ${this.config.style_bubble?.['display-art'] || 'unset'};
-    --bubble-main-background-color: transparent;
-      justify-content: ${this.config.style_bubble?.['justify-content'] || 'flex-end'}'};
+      --bubble-main-background-color: transparent;
+      justify-content: ${this.config.style_bubble?.['justify-content'] || 'flex-end'};
     }
 
     .icon-without-state {
-      --mdc-icon-size: ${this.config.style_bubble?.['icon-size']}px !important;
+      --mdc-icon-size: ${(this.config.style_bubble?.['icon-size'] || 24) + 'px'} !important;
     }
 
     .bubble-sub-button {
-      height: ${this.config.style_bubble?.['button-background-height']}px !important;
-      width: ${this.config.style_bubble?.['button-background-width']}px !important;
+      height: ${(this.config.style_bubble?.['button-background-height'] || 40) + 'px'} !important;
+      width: ${(this.config.style_bubble?.['button-background-width'] || 40) + 'px'} !important;
     }
 
     .bubble-sub-button-container,
     .large .bubble-sub-button-container {
-        display: flex;
-        flex-flow: wrap;
-        gap: ${this.config.style_bubble?.gap}px;
-      }
+      display: flex;
+      flex-flow: wrap;
+      gap: ${(this.config.style_bubble?.gap || 4) + 'px'};
+    }
 
     .bubble-button-card-container,
     .bubble-button-card-container .bubble-container,
@@ -42,13 +42,13 @@ style_bubble:
       overflow: visible !important;
     }
 
-    .background-off{
+    .background-off {
       background-color: ${this.config.style_bubble?.['button-background-color'] || 'rgb(25, 24, 22)'};
     }
 
     .bubble-name {
-      color:  ${this.config.style_bubble?.['title-color']};
-      font-size: ${this.config.style_bubble?.['title-size']}px;
+      color: ${this.config.style_bubble?.['title-color'] || 'inherit'};
+      font-size: ${(this.config.style_bubble?.['title-size'] || 14) + 'px'} !important;
     }
   editor:
     - type: expandable
