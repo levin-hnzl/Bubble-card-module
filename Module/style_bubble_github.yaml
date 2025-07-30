@@ -3,10 +3,24 @@
 **Version:** 2.1  
 **Creator:** levin-hnzl
 **Changelog:**
-### 1.0
+<details>
+ <summary>
+ v1.0
+ </summary>
 - release
-### 2.0
+</details>
+<details>
+ <summary>
+ v2.0
+ </summary>
 - Border radius for sub buttons customizable
+</details>
+<details>
+ <summary>
+ v2.1
+ </summary>
+- Fix the Title color bug
+</details>
 
 > [!IMPORTANT] 
 > **Supported cards:**
