@@ -1,0 +1,238 @@
+# Style Bubble
+
+**Version:** 2.1  
+**Creator:** levin-hnzl
+**Changelog:**
+### 1.0
+- release
+### 2.0
+- Border radius for sub buttons customizable
+
+> [!IMPORTANT] 
+> **Supported cards:**
+>  - Separator
+
+This is a simple styling module for the separator
+Configure this module via the editor or in YAML, for example:
+
+```yaml
+style_bubble: 
+```
+
+---
+
+<details>
+
+<summary><b>🧩 Get this Module</b></summary>
+
+<br>
+
+> To use this module, simply install it from the Module Store (from the editor of any card > Modules), or copy and paste the following configuration into your `/www/bubble/bubble-modules.yaml` file.
+
+```yaml
+style_bubble:
+    name: "Style Bubble"
+    version: "2.0"
+    creator: "levin-hnzl"
+    link: "https://github.com/Clooos/Bubble-Card/discussions/XXXX"
+
+    supported:
+        - separator
+
+    description: |
+        this is a simple styling module for the separator
+        <br><br>
+        <code-block><pre>
+        style_bubble: 
+            # Your configuration here
+        </pre></code-block>
+
+    code: |
+        .bubble-line {
+          visibility: ${this.config.style_bubble?.['visibility'] || 'visible'};
+          background-color: ${this.config.style_bubble?.['line-color'] || 'rgb(25, 24, 22)'};
+          height: ${(this.config.style_bubble?.['line-height'] || 7) + 'px'};
+          border-radius: ${(this.config.style_bubble?.['line-radius'] || 6) + 'px'};
+          opacity: ${this.config.style_bubble?.['line-opacity'] || '0.6'};
+        }
+        
+        ha-card {
+          display: ${this.config.style_bubble?.['display-art'] || 'unset'};
+          --bubble-main-background-color: transparent;
+          justify-content: ${this.config.style_bubble?.['justify-content'] || 'flex-end'};
+        }
+        
+        .icon-without-state {
+          --mdc-icon-size: ${(this.config.style_bubble?.['icon-size'] || 24) + 'px'} !important;
+        }
+        
+        .bubble-sub-button {
+          height: ${(this.config.style_bubble?.['button-background-height'] || 40) + 'px'} !important;
+          width: ${(this.config.style_bubble?.['button-background-width'] || 40) + 'px'} !important;
+          border-radius: ${(this.config.style_bubble?.['button-border-radius'] || 32) + 'px'} !important;
+        }
+        
+        .bubble-sub-button-container,
+        .large .bubble-sub-button-container {
+          display: flex;
+          flex-flow: wrap;
+          gap: ${(this.config.style_bubble?.gap || 4) + 'px'};
+        }
+        
+        .bubble-button-card-container,
+        .bubble-button-card-container .bubble-container,
+        .bubble-button-card-container .bubble-container .button-container {
+          overflow: visible !important;
+        }
+        
+        .background-off {
+          background-color: ${this.config.style_bubble?.['button-background-color'] || 'rgb(25, 24, 22)'};
+        }
+        
+        .bubble-name {
+          color: ${this.config.style_bubble?.['title-color'] || 'inherit'};
+          font-size: ${(this.config.style_bubble?.['title-size'] || 14) + 'px'} !important;
+        }
+        
+
+    editor:
+      - type: expandable
+        title: Seperator Settings
+        icon: mdi:cog
+        schema:
+          - name: display-art
+            label: Would you like to use position?
+            selector:
+              select:
+                options:
+                  - label: 'Yes'
+                    value: flex
+                  - label: 'No'
+                    value: unset
+          - name: justify-content
+            label: Position
+            selector:
+              select:
+                options:
+                  - label: start
+                    value: flex-start
+                  - label: center
+                    value: center
+                  - label: end
+                    value: flex-end
+                  - label: space between
+                    value: space-between
+                  - label: space around
+                    value: space-around
+                  - label: space evenly
+                    value: space-evenly
+          - name: title-size
+            label: Title size
+            mode: slider
+            selector:
+              number:
+                min: 0
+                max: 100
+          - name: line-color
+            label: 'Title color (enter #hex or rgb color code)'
+            selector:
+              text: {}
+      - type: expandable
+        title: Line style
+        icon: mdi:palette
+        schema:
+          - name: visibility
+            label: Line visibility
+            selector:
+              select:
+                options:
+                  - hidden
+                  - visible
+          - name: line-color
+            label: 'Line color (enter #hex or rgb color code)'
+            selector:
+              text: {}
+          - name: line-height
+            label: Line height
+            selector:
+              number:
+                min: 1
+                unit_of_measurement: px
+          - name: line-opacity
+            label: Line color opacity
+            mode: slider
+            selector:
+              number:
+                step: 0.1
+                min: 0
+                max: 1
+          - name: line-radius
+            label: Line border radius
+            selector:
+              number:
+                min: 0
+                unit_of_measurement: px
+      - type: expandable
+        title: Sub Buttons
+        icon: mdi:button-pointer
+        schema:
+          - type: expandable
+            title: General
+            icon: mdi:cog
+            schema:
+              - name: button-background-height
+                label: Button background height
+                selector:
+                  number:
+                    min: 0
+                    unit_of_measurement: px
+              - name: button-background-width
+                label: Button background width
+                selector:
+                  number:
+                    min: 0
+              - name: button-border-radius
+                label: Button border radius
+                mode: slider
+                selector:
+                  number:
+                    min: 1
+                    max: 32
+              - name: gap
+                label: Gap
+                selector:
+                  number:
+                    min: 0
+                    unit_of_measurement: px
+              - name: button-background-color
+                label: 'Button background color (enter #hex or rgb color code)'
+                selector:
+                  text: {}
+          - type: expandable
+            title: icon
+            icon: mdi:cog
+            schema:
+              - name: icon-size
+                label: Icon size
+                selector:
+                  number:
+                    min: 0
+                    unit_of_measurement: px
+      
+```
+
+</details>
+
+---
+
+### Screenshot:
+
+<img width="458" height="320" alt="image" src="https://github.com/user-attachments/assets/3f0e712a-aa27-4b5a-9357-5ec80305ce0f" />
+
+### Before posting your module
+
+- [X] I've replaced all lines starting with ->
+- [X] I've updated the unsupported cards above the description and under the `unsupported` property
+- [X] I've added a screenshot
+- [X] I've chosen a unique `your_module_key`
+- [X] I really enjoyed working on this module ❤️
