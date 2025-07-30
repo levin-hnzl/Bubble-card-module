@@ -90,7 +90,7 @@ style_bubble:
         }
         
         .bubble-name {
-          color: ${this.config.style_bubble?.['title-color'] || 'inherit'};
+          color: ${this.config.style_bubble?.['title-color']};
           font-size: ${(this.config.style_bubble?.['title-size'] || 14) + 'px'} !important;
         }
         
@@ -133,7 +133,7 @@ style_bubble:
               number:
                 min: 0
                 max: 100
-          - name: line-color
+          - name: title-color
             label: 'Title color (enter #hex or rgb color code)'
             selector:
               text: {}
