@@ -1,6 +1,6 @@
 style_bubble:
   name: Style Bubble
-  version: '1.0'
+  version: '2.0'
   creator: levin-hnzl
   supported:
     - separator
@@ -152,7 +152,7 @@ style_bubble:
               mode: slider
               selector:
                 number:
-                  min: 0
+                  min: 1
                   max: 32
             - name: gap
               label: Gap
