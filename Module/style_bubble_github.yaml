@@ -46,7 +46,7 @@ style_bubble:
 ```yaml
 style_bubble:
     name: "Style Bubble"
-    version: "2.0"
+    version: "2.1"
     creator: "levin-hnzl"
     link: "https://github.com/Clooos/Bubble-Card/discussions/XXXX"
 
