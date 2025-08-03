@@ -1,6 +1,6 @@
 # Style Bubble
 
-**Version:** 2.1  
+**Version:** 2.2  
 **Creator:** levin-hnzl
 **Changelog:**
 <details>
@@ -20,6 +20,12 @@
  v2.1
  </summary>
 - Fix the Title color bug
+</details>
+<details>
+ <summary>
+ v2.2
+ </summary>
+- delete the standard sizes
 </details>
 
 > [!IMPORTANT] 
@@ -46,7 +52,7 @@ style_bubble:
 ```yaml
 style_bubble:
     name: "Style Bubble"
-    version: "2.1"
+    version: "2.2"
     creator: "levin-hnzl"
     link: "https://github.com/Clooos/Bubble-Card/discussions/XXXX"
 
@@ -81,8 +87,8 @@ style_bubble:
         }
         
         .bubble-sub-button {
-          height: ${(this.config.style_bubble?.['button-background-height'] || 40) + 'px'} !important;
-          width: ${(this.config.style_bubble?.['button-background-width'] || 40) + 'px'} !important;
+          height: ${(this.config.style_bubble?.['button-background-height']} !important;
+          width: ${(this.config.style_bubble?.['button-background-width']} !important;
           border-radius: ${(this.config.style_bubble?.['button-border-radius'] || 32) + 'px'} !important;
         }
         
@@ -105,7 +111,7 @@ style_bubble:
         
         .bubble-name {
           color: ${this.config.style_bubble?.['title-color']};
-          font-size: ${(this.config.style_bubble?.['title-size'] || 14) + 'px'} !important;
+          font-size: ${(this.config.style_bubble?.['title-size']} !important;
         }
         
 
