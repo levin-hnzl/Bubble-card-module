@@ -93,9 +93,9 @@ style_bubble:
         }
         
         .bubble-sub-button {
-          height: ${(this.config.style_bubble?.['button-background-height']} !important;
+          height: ${this.config.style_bubble?.['button-background-height']} !important;
           width: ${this.config.style_bubble?.['button-background-width']} !important;
-          border-radius: ${this.config.style_bubble?.['button-border-radius'] || 32) + 'px'} !important;
+          border-radius: ${(this.config.style_bubble?.['button-border-radius'] || 32) + 'px'} !important;
         }
         
         .bubble-sub-button-container,
