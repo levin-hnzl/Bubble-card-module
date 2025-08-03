@@ -1,6 +1,6 @@
 # Style Bubble
 
-**Version:** 2.3  
+**Version:** 2.4  
 **Creator:** levin-hnzl
 **Changelog:**
 <details>
@@ -33,6 +33,12 @@
  </summary>
 - Bug Fixes
 </details>
+<details>
+ <summary>
+ v2.4
+ </summary>
+- Bug Fixes
+</details>
 
 > [!IMPORTANT] 
 > **Supported cards:**
@@ -58,7 +64,7 @@ style_bubble:
 ```yaml
 style_bubble:
     name: "Style Bubble"
-    version: "2.3"
+    version: "2.4"
     creator: "levin-hnzl"
     link: "https://github.com/Clooos/Bubble-Card/discussions/XXXX"
 
